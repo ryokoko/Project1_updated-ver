@@ -1,8 +1,11 @@
 import React from 'react';
-import Header from './app/Header';
-import MobileHeader from './app/MobileHeader';
-import Page from './app/Page';
-import Footer from './app/Footer';
+
+import Header from './app/Header/Header';
+import MobileHeader from './app/Header/MobileHeader';
+import Page from './app/Page/Page';
+import Footer from './app/Footer/Footer';
+
+
 
 //Arrow function, return Function Component
 const App = () => (
