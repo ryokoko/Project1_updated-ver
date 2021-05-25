@@ -64,6 +64,12 @@ const SidebarBtn = styled(SidebarItem)`
 
 `;
 
+const OpenBtn = styled.div`
+    float: right;
+    cursor: pointer;
+    margin: 10px 20px;
+    font-size: 30px;
+`;
 const MobileHeader = () => (
     <MobileHead>
             <MobileLogo>Rebecca <Highlight>Li</Highlight></MobileLogo>
@@ -74,7 +80,7 @@ const MobileHeader = () => (
                 <SidebarItem class="tab tab__services">Services</SidebarItem>
                 <SidebarItem class="tab tab__contact">Contact</SidebarItem>
             </Sidebar>
-            <div id="btn--open">&#9776;</div>        
+            <OpenBtn>&#9776;</OpenBtn>        
     </MobileHead>
 )
 

@@ -1,5 +1,4 @@
 import React from 'react';
-/* import { Row, Col } from 'react-bootstrap'; */
 
 import styled from 'styled-components';
 import MainSection from '../components/MainSection';
@@ -49,7 +48,7 @@ const TitleBlock = styled.div`
     }
 `;
 
-const SocialIcons = styled.div`
+const SocialIcons = styled.a`
     text-align: center;
     padding: 2%;
     a {
@@ -75,10 +74,25 @@ const HomeContent = styled(Flex)`
     padding: 20px 30px;
 `;
 
+const AboutMe = styled.div`
+    @media (max-width: 768px) {
+        flex: 100%;
+    }
+    @media (min-width: 768px) {
+        flex: 50%;
+    }
+`;
+
 const PersonalDetails = styled.ul`
     margin-top: 20px;
     list-style-type: none;
     padding: 0;
+    @media (max-width: 768px) {
+        flex: 100%;
+    }
+    @media (min-width: 768px) {
+        flex: 50%;
+    }
 `;
 
 const DetailItem = styled.li`
@@ -106,7 +120,6 @@ const DetailValue = styled.span`
 
 
 const HomePage = () => (
-    <div>
         <MainSection>
                 <HomeHeader>                   
                     <ProfilePhoto>
@@ -115,21 +128,21 @@ const HomePage = () => (
                     <TitleBlock>
                         <h1>Rebecca Li</h1>
                         <div class="title">Junior Radiographer</div>
-                    </TitleBlock>
-                    <SocialIcons>
-                        <a href="https://www.linkedin.com/in/liangzi-li-stella/" target="_blank" class="fa fa-linkedin" />
-                        <a href="https://github.com/ryokoko" target="_blank" class="fa fa-facebook" />
-                        <a href="https://www.instagram.com/ryoko.r_/" target="_blank" class="fa fa-instagram" />
-                    </SocialIcons>
+                        <SocialIcons>
+                            <a href="https://www.linkedin.com/in/liangzi-li-stella/" target="_blank" class="fa fa-linkedin"></a>
+                            <a href="https://github.com/ryokoko" target="_blank" class="fa fa-facebook"></a>
+                            <a href="https://www.instagram.com/ryoko.r_/" target="_blank" class="fa fa-instagram"></a>
+                        </SocialIcons>
+                    </TitleBlock>                    
                 </HomeHeader>
                 <HomeContent>
-                            <div>
+                            <AboutMe>
                                 <h3>About Me</h3>
                                 <div>Hi there! My name is Rebecca. I am a highly motivated 2020 radiography graduate from
                                 the University of Sydney. I enjoy providing high-quality care to the general public and 
                                 working in a team environment, whilst maintaining independence. I have worked in both 
                                 hospitals and fast-paced private practices.</div>
-                            </div>                    
+                            </AboutMe>                    
                             <PersonalDetails>
                                 <DetailItem>
                                     <DetailKey>Education</DetailKey><DetailValue>Associate of Applied Science: Diagnostic Radiography</DetailValue>
@@ -148,8 +161,7 @@ const HomePage = () => (
                                 </DetailItem>
                             </PersonalDetails>
                 </HomeContent>
-        </MainSection>     
-    </div>
+        </MainSection>    
 );
 
 export default HomePage;
