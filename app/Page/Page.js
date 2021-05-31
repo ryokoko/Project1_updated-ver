@@ -6,9 +6,6 @@ import ContactPage from './ContactPage/ContactPage';
 
 import styled from 'styled-components';
 
-const MainBody = styled.div`
-    background-color: #e9e7e7;
-`;
 
 
 const Page = ({ activePage }) => {

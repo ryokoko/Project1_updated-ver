@@ -72,6 +72,12 @@ const HomeContent = styled(Flex)`
     font-size: 1.5rem;
     width: 100%;
     padding: 20px 30px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 `;
 
 const AboutMe = styled.div`
@@ -119,7 +125,17 @@ const DetailValue = styled.span`
 
 
 
-const HomePage = () => (
+const HomePage = () => {
+
+    const personalDetailItems = [
+        { detailKey: 'Education', detailValue: 'Associate of Applied Science: Diagnostic Radiography', }, 
+        { detailKey: 'Residence', detailValue: 'Australia', }, 
+        { detailKey: 'Email', detailValue: 'lrzrebecca@noname.com', },
+        { detailKey: 'Mobile', detailValue: '+61 040 6678 889', },
+        { detailKey: 'Address', detailValue: '123 Nonamelane, Box Hill VIC 3128', }
+    ];
+
+    return (
         <MainSection>
                 <HomeHeader>                   
                     <ProfilePhoto>
@@ -144,24 +160,18 @@ const HomePage = () => (
                                 hospitals and fast-paced private practices.</div>
                             </AboutMe>                    
                             <PersonalDetails>
-                                <DetailItem>
-                                    <DetailKey>Education</DetailKey><DetailValue>Associate of Applied Science: Diagnostic Radiography</DetailValue>
-                                </DetailItem>
-                                <DetailItem>
-                                    <DetailKey>Residence</DetailKey><DetailValue>Australia</DetailValue>
-                                </DetailItem>
-                                <DetailItem>
-                                    <DetailKey>Email</DetailKey><DetailValue><a href="mailto:lrzrebecca@noname.com">lrzrebecca@noname.com</a></DetailValue>
-                                </DetailItem>
-                                <DetailItem>
-                                    <DetailKey>Mobile</DetailKey><DetailValue>+61 040 6678 889</DetailValue>
-                                </DetailItem>
-                                <DetailItem>
-                                    <DetailKey>Address</DetailKey><DetailValue>123 Nonamelane, Box Hill VIC 3128</DetailValue>
-                                </DetailItem>
+                            {
+                                personalDetailItems.map((item) => (
+                                    <DetailItem>
+                                        <DetailKey>{item.detailKey}</DetailKey>
+                                        <DetailValue>{item.detailValue}</DetailValue>
+                                    </DetailItem>
+                                )) 
+                            } 
                             </PersonalDetails>
                 </HomeContent>
-        </MainSection>    
-);
+        </MainSection>
+    )    
+}
 
 export default HomePage;

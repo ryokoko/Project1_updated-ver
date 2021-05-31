@@ -7,6 +7,7 @@ import Footer from './app/Footer/Footer';
 
 
 
+
 //Arrow function, return Function Component
 /* const App = () => {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
 
         this.state = { //初始化state.这里面的key value都是网站初始状态
             page: 'HOME',
+            clicked: false,
         }
 
         this.handlePageChange = this.handlePageChange.bind(this);
@@ -41,10 +43,22 @@ class App extends React.Component {
         });
     }
 
-    render() {
-        const { page } = this.state;
 
-        //this.state.page="RESUME"; 这种方法是简单的jd赋值，没有react参与
+    handleSidebarOpen = () => {
+        /* return console.log('clicked'); */
+        return this.setState({
+            clicked: !this.state.clicked ,
+        });
+        
+    }
+ 
+    
+
+    render() {
+        const { page, clicked } = this.state;
+        /* const { clicked } = this.props; */
+
+        //this.state.page="RESUME"; 这种方法是简单的js赋值，没有react参与
         //setState:把this.state更新到最新值
         //执行reconciliation，更新内容
 
@@ -53,7 +67,8 @@ class App extends React.Component {
         return (
             <div>
                 <Header onPageChange={this.handlePageChange} activePage={page} />
-                <MobileHeader  activePage={page} />
+                <MobileHeader onSidebarOpen={this.handleSidebarOpen} clicked={clicked} activePage={page} />
+                {console.log(clicked) }
                 <Page  activePage={page} />
                 <Footer />
             </div>

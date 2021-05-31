@@ -24,16 +24,18 @@ const MobileLogo = styled(LogoStyle)`
 
 const Sidebar = styled.div`
     height: 100%;
-    width: 0;
+    width: ${(props) => props.clicked? '30px':'0px'}; 
     position: fixed;
     z-index: 20;
     top: 0;
-    right: 0;
+    right: ${(props) => props.clicked ? '50px':'0px'};
     background-color: #fdd371;
     color: #524c49;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     padding-top: 60px;
-    transition: 0.5s;
+    transition:  ${(props) => props.clicked ? '0.5s': '1s'}; 
+    /* visibility: ${((state) => state.sidebar ? 'visible' : 'hidden')}; */
+    transform: ${(props) => props.clicked ? '50px': '0px'}; 
 `;
 
 const SidebarItem = styled.a`
@@ -52,7 +54,7 @@ const SidebarItem = styled.a`
     }
 `;
 /* 改props btn状态 */
-const SidebarBtn = styled(SidebarItem)`
+const CloseBtn = styled(SidebarItem)`
     float: right;
     cursor: pointer;
     margin: 10px 20px;
@@ -70,18 +72,29 @@ const OpenBtn = styled.div`
     margin: 10px 20px;
     font-size: 30px;
 `;
-const MobileHeader = () => (
+const MobileHeader = ({onSidebarOpen, clicked}) => {
+
+    const navBarItems = [
+        {key: 'HOME', value: 'Home',},
+        {key: 'RESUME', value: 'Resume',},
+        {key: 'SERVICES', value: 'Services',},
+        {key: 'CONTACT', value: 'Contact',},
+    ];
+
+  
+    return (
     <MobileHead>
             <MobileLogo>Rebecca <Highlight>Li</Highlight></MobileLogo>
-            <Sidebar id="sidebar">
-                <SidebarBtn href='javascript:void(0)' id='btn--close'>&times;</SidebarBtn>
-                <SidebarItem class="tab tab__home">Home</SidebarItem>
-                <SidebarItem class="tab tab__resume">Resume</SidebarItem>
-                <SidebarItem class="tab tab__services">Services</SidebarItem>
-                <SidebarItem class="tab tab__contact">Contact</SidebarItem>
+            <Sidebar clicked={clicked} id="sidebar">
+                <CloseBtn href='javascript:void(0)' id='btn--close'>&times;</CloseBtn>
+                {
+                    navBarItems.map((item) => (
+                        <SidebarItem>{item.value}</SidebarItem>
+                    ))
+                }
             </Sidebar>
-            <OpenBtn>&#9776;</OpenBtn>        
+            <OpenBtn onClick={() => {onSidebarOpen()}}>&#9776;</OpenBtn>        
     </MobileHead>
-)
+)}
 
 export default MobileHeader;
