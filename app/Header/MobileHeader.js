@@ -23,19 +23,18 @@ const MobileLogo = styled(LogoStyle)`
 `;
 
 const Sidebar = styled.div`
-    height: 100%;
-    width: ${(props) => props.clicked? '30px':'0px'}; 
+    height: 100vh;
+    width: ${(props) => props.clicked? '70%':'0px'}; 
     position: fixed;
     z-index: 20;
-    top: 0;
-    right: ${(props) => props.clicked ? '50px':'0px'};
+    top: 60px;
+    right: 0;
     background-color: #fdd371;
     color: #524c49;
-    /* overflow-x: hidden; */
-    padding-top: 60px;
-    transition:  ${(props) => props.clicked ? '0.5s': '1s'}; 
-    /* visibility: ${((state) => state.sidebar ? 'visible' : 'hidden')}; */
-    transform: ${(props) => props.clicked ? '50px': '0px'}; 
+    overflow-x: hidden;
+    padding-top: 50px;
+    transition:  0.5s/* ${(props) => props.clicked ? '0.5s': '0.5s'} */; 
+    transform: ${(props) => props.clicked ? '60px': '0px'}; 
 `;
 
 const SidebarItem = styled.a`
@@ -45,6 +44,8 @@ const SidebarItem = styled.a`
     font-size: 2rem;
     color: #524c49;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 
     &:hover {
         color: #524c49;
@@ -53,18 +54,6 @@ const SidebarItem = styled.a`
         color: #f99f6f;
     }
 `;
-/* 改props btn状态 */
-const CloseBtn = styled(SidebarItem)`
-    float: right;
-    cursor: pointer;
-    margin: 10px 20px;
-    font-size: 30px;
-
-    &:hover {
-        color: #f99f6f;
-    }
-
-`;
 
 const OpenBtn = styled.div`
     float: right;
@@ -72,7 +61,7 @@ const OpenBtn = styled.div`
     margin: 10px 20px;
     font-size: 30px;
 `;
-const MobileHeader = ({onSidebarOpen, clicked}) => {
+const MobileHeader = ({onSidebarOpen, clicked, activePage, onPageChange}) => {
 
     const navBarItems = [
         {key: 'HOME', value: 'Home',},
@@ -85,11 +74,10 @@ const MobileHeader = ({onSidebarOpen, clicked}) => {
     return (
     <MobileHead>
             <MobileLogo>Rebecca <Highlight>Li</Highlight></MobileLogo>
-            <Sidebar clicked={clicked} id="sidebar">
-                <CloseBtn href='javascript:void(0)' id='btn--close'>&times;</CloseBtn>
+            <Sidebar clicked={clicked}>
                 {
                     navBarItems.map((item) => (
-                        <SidebarItem>{item.value}</SidebarItem>
+                        <SidebarItem onClick={() => {onPageChange(item.key); onSidebarOpen()}} activePage={item.value} clicked={clicked} >{item.value}</SidebarItem>
                     ))
                 }
             </Sidebar>

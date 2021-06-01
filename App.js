@@ -56,7 +56,6 @@ class App extends React.Component {
 
     render() {
         const { page, clicked } = this.state;
-        /* const { clicked } = this.props; */
 
         //this.state.page="RESUME"; 这种方法是简单的js赋值，没有react参与
         //setState:把this.state更新到最新值
@@ -67,8 +66,7 @@ class App extends React.Component {
         return (
             <div>
                 <Header onPageChange={this.handlePageChange} activePage={page} />
-                <MobileHeader onSidebarOpen={this.handleSidebarOpen} clicked={clicked} activePage={page} />
-                {console.log(clicked) }
+                <MobileHeader onSidebarOpen={this.handleSidebarOpen} clicked={clicked} onPageChange={this.handlePageChange} activePage={page} />
                 <Page  activePage={page} />
                 <Footer />
             </div>
