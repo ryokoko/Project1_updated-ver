@@ -1,12 +1,15 @@
 import React from 'react';
-import HomePage from './HomePage/HomePage';
-import ResumePage from './ResumePage/ResumePage';
-import ServicesPage from './ServicesPage/ServicesPage';
-import ContactPage from './ContactPage/ContactPage';
+import HomePage from './HomePage';
+import ResumePage from './ResumePage';
+import ServicesPage from './ServicesPage';
+import ContactPage from './ContactPage';
 
 import styled from 'styled-components';
 
-
+const PageContainer = styled.div`
+    position: relative;
+    z-index: 5;
+`;
 
 const Page = ({ activePage }) => {
     /* const page ='HOME'; */
@@ -35,13 +38,13 @@ const Page = ({ activePage }) => {
     
 
     return (
-        <div className="pages"> 
+        <PageContainer className="pages"> 
             { activePage === 'HOME' && (<HomePage />) }
             { activePage === 'RESUME' && (<ResumePage />) }
             { activePage === 'SERVICES' && (<ServicesPage />) }
             { activePage === 'CONTACT' && (<ContactPage />) }
 
-        </div>
+        </PageContainer>
     )
 }
 

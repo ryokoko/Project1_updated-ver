@@ -1,10 +1,12 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+
 
 import styled from 'styled-components';
 import MainSection from '../components/MainSection';
 import GeneralHeader from '../components/GeneralHeader';
 import { ContentTitle, GeneralContent } from '../components/ContentStyle';
+import Flex from '../../../Components/Flex';
+import FlexBlock from '../../../Components/FlexBlock';
 
 
 const Timeline = styled.div`
@@ -51,14 +53,17 @@ const TimelineBlock = styled.div`
 `;
 
 const Duration = styled.span`
-    border-right: 1px solid #e9e7e7;
+    border-right: 1px solid #ccc3c3;
     color: #f99f6f;
 `;
 
-const SkillBlock = styled.ol`
+const Org = styled.span`
+    font-style: italic;
+`;
+
+const ListBlock = styled.ol`
     list-style-type: square;
     li {
-        padding: 2% 5%;
         &::marker {
             color: #f99f6f;
             font-size: 2rem;
@@ -66,7 +71,23 @@ const SkillBlock = styled.ol`
     }
 `;
 
-const CertBlock = styled.div`
+/* const FlexBlock = styled(Flex)`
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+`; */
+
+const SkillItems = styled(ListBlock)`
+    li {
+        padding: 2% 5%;
+    }
+`;
+
+const CertBlock = styled(FlexBlock)`
+    justify-content: space-between;
     p {
         padding: 1% 5%;
         font-size: 3rem;
@@ -79,7 +100,63 @@ const CertBlock = styled.div`
 
 
 
-const ResumePage = () => (
+const ResumePage = () => {
+
+    const expItems = [
+        {
+            title: 'Grade 2 Radiographer', 
+            duration: '11/2020 - present', 
+            org:'Horizon Imaging Clinic, Box Hill, VIC',
+            intro: ['Prepare general X-Ray, OPG and CT', 'Assist in MRI and other services'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '07/2020 - 09/2020', 
+            org:'St George Hospital, Kogarah, NSW',
+            intro: ['Captured images using mobile equipment in ICU, emergency rooms, and patients\' bedsides', 'Use O-arm in theatre',
+            'Able to do x-ray and CT for trauma patients', 'Created images using fluoroscopy to help physicians assess and diagnose patients',
+            'Infection control'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '01/2020 - 04/2020', 
+            org:'Bankstown Health Imaging, Bankstown, NSW',
+            intro: ['Able to prepare for BA swallow, IV contrast, and Gastrografin', 'Able to use DEXA to create images'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '07/2019 - 09/2019', 
+            org:'Bankstown Imaging - Healthcare Imaging Services, Bankstown, NSW',
+            intro: ['Prepared and administered contrast materials and anesthetic for imaging procedures', 'Observe ultrasound',
+            'Assist facet joint injection', 'Able to use different brands of general x-ray machine, CT machine, OPG machine, and familiar with different system including PACS and Visage',
+            'Able to arrive and bill patients at reception'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '01/2019 - 02/2019', 
+            org:'Fairfield Hospital, Prairiewood, NSW',
+            intro: ['Created images using fluoroscopy during Barium swallow to help physicians assess patients', 
+            'Practice C-arm machine in operation theatre', 'Operated x-ray and mobile imaging equipment in emergency department ICU, ED and wards',
+            'Prepared contrast materials, anesthetic for imaging procedures', 'Exam post-operation patients', 'Apply infection control'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '11/2018 - 12/2018', 
+            org:'I-MED Erina Central Coast, Erina, NSW',
+            intro: ['Completed CT for Chest, Abdomen, and Brain', 'Bilingual translation', 'Familiar use wireless DR machine', 'Observed and created images of BMD'],
+        },
+        {
+            title: 'Student Radiographer', 
+            duration: '06/2018 - 07/2018', 
+            org:'Alfred Imaging North Strathfield, Strathfield, NSW',
+            intro: ['Minimised beam-restrictive exposure to patients and applied shielding strategies', 
+            'Educated patients on aspects of the procedure, offered instructions and answered questions to reduce distress', 
+            'Familiar using CR machine'],
+        },
+
+    ];
+
+    return (
     <div>
         <MainSection>
                 <GeneralHeader>
@@ -87,130 +164,55 @@ const ResumePage = () => (
                 </GeneralHeader>
                 <GeneralContent>
                         <ContentTitle>Experience</ContentTitle>
-                            <Timeline>
-                                <TimelineBlock>
-                                    <h4 class="title">Grade 2 Radiographer</h4>
-                                    <Duration>11/2020 - present</Duration>
-                                    <span class="org">Horizon Imaging Clinic, Box Hill, VIC</span>
-                                    <ol class="intro">
-                                        <li>Prepare general X-Ray, OPG and CT</li>
-                                        <li>Assist in MRI and other services</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>07/2020 - 09/2020</Duration>
-                                    <span class="org">St George Hospital, Kogarah, NSW</span>
-                                    <ol class="intro">
-                                        <li>Captured images using mobile equipment
-                                        in ICU, emergency rooms, and patients' bedsides</li>
-                                        <li>Use O-arm in theatre</li>
-                                        <li>Able to do x-ray and CT for trauma patients</li>
-                                        <li>Created images using fluoroscopy to help 
-                                        physicians assess and diagnose patients</li>
-                                        <li>Infection control</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>01/2020 - 04/2020</Duration>
-                                    <span class="org">Bankstown Health Imaging, Bankstown, NSW</span>
-                                    <ol class="intro">
-                                        <li>Able to prepare for BA swallow, IV contrast, and Gastrografin</li>
-                                        <li>Able to use DEXA to create images</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>07/2019 - 09/2019</Duration>
-                                    <span class="org">Bankstown Imaging - Healthcare Imaging Services, Bankstown, NSW</span>
-                                    <ol class="intro">
-                                        <li>Prepared and administered contrast materials and anesthetic for 
-                                        imaging procedures</li>
-                                        <li>Observe ultrasound</li>
-                                        <li>Assist facet joint injection</li>
-                                        <li>Able to use different brands of general x-ray machine,
-                                        CT machine, OPG machine, and familiar with different system 
-                                        including PACS and Visage</li>
-                                        <li>Able to arrive and bill patients at reception</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>01/2019 - 02/2019</Duration>
-                                    <span class="org">Fairfield Hospital, Prairiewood, NSW</span>
-                                    <ol class="intro">
-                                        <li>Created images using fluoroscopy during Barium swallow 
-                                        to help physicians assess patients</li>
-                                        <li>Practice C-arm machine in operation theatre</li>
-                                        <li>Operated x-ray and mobile imaging equipment in 
-                                        emergency department ICU, ED and wards</li>
-                                        <li>Prepared contrast materials, anesthetic for imaging procedures</li>
-                                        <li>Exam post-operation patients</li>
-                                        <li>Apply infection control</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>11/2018 - 12/2018</Duration>
-                                    <span class="org">I-MED Erina Central Coast, Erina, NSW</span>
-                                    <ol class="intro">
-                                        <li>Completed CT for Chest, Abdomen, and Brain</li>
-                                        <li>Bilingual translation</li>
-                                        <li>Familiar use wireless DR machine</li>
-                                        <li>Observed and created images of BMD</li>
-                                    </ol>
-                                </TimelineBlock>
-                                <TimelineBlock>
-                                    <h4 class="title">Student Radiographer</h4>
-                                    <Duration>06/2018 - 07/2018</Duration>
-                                    <span class="org">Alfred Imaging North Strathfield, Strathfield, NSW</span>
-                                    <ol class="intro">
-                                        <li>Minimised beam-restrictive exposure to patients and applied 
-                                        shielding strategies</li>
-                                        <li>Educated patients on aspects of the procedure, offered
-                                        instructions and answered questions to reduce distress
-                                        and enhance cooperation</li>
-                                        <li>Familiar using CR machine</li>
-                                    </ol>
-                                </TimelineBlock>            
-                        </Timeline>
+                            <Timeline>                                                          
+                                {
+                                    expItems.map((expItem) => (
+                                        
+                                        <TimelineBlock>
+                                            <h4>{expItem.title}</h4>
+                                            <Duration>{expItem.duration}</Duration>
+                                            <Org>{expItem.org}</Org>  
+                                            <ListBlock key={expItems.duration}>
+                                                {
+                                                    expItem.intro.map((item) => <li>{item}</li>)
+                                                }
+                                            </ListBlock>
+                                        </TimelineBlock>                                   
+                                    ))
+                                }                               
+                            </Timeline>
 
                     
                         <ContentTitle>Skills</ContentTitle>
-                            <Row>
-                                <Col md={6}>
-                                    <SkillBlock>
-                                        <li>X-ray</li> 
-                                        <li>OPG</li>
-                                        <li>Non-contrast CT</li>
-                                        <li>C-arm, O-arm</li>
-                                        <li>Materials prepare (BA, Gastrografin, Contrast)</li>
-                                    </SkillBlock>
-                                </Col>
-                                <Col md={6}>
-                                    <SkillBlock>                       
-                                        <li>PACS</li>
-                                        <li>Theatre</li>
-                                        <li>Mobile</li>
-                                        <li>Infection control</li>
-                                        <li>Translation</li>
-                                        <li>Bilingual (Mandarin and English)</li>
-                                    </SkillBlock>
-                                </Col>
-                            </Row>
+                            <FlexBlock>
+                                <SkillItems>
+                                    <li>X-ray</li> 
+                                    <li>OPG</li>
+                                    <li>Non-contrast CT</li>
+                                    <li>C-arm, O-arm</li>
+                                    <li>Materials prepare (BA, Gastrografin, Contrast)</li>
+                                </SkillItems>
+                                <SkillItems>                       
+                                    <li>PACS</li>
+                                    <li>Theatre</li>
+                                    <li>Mobile</li>
+                                    <li>Infection control</li>
+                                    <li>Translation</li>
+                                    <li>Bilingual (Mandarin and English)</li>
+                                </SkillItems>
+                            </FlexBlock>
+
                         <ContentTitle>Certificates</ContentTitle>
-                            <Row>
-                                <CertBlock>
-                                    <Col sm={2}><p class="fa fa-medkit"></p>First Aid</Col>
-                                    <Col sm={2}><p class="fa fa-heartbeat"></p>CPR</Col>
-                                    <Col sm={4}><p class="fa fa-shield"></p>National Criminal Check</Col>
-                                    <Col sm={4}><p class="fa fa-child"></p>Work with Children Check</Col>
-                                </CertBlock>
-                            </Row> 
+                            <CertBlock>
+                                <div><p class="fa fa-medkit"></p>First Aid</div>
+                                <div><p class="fa fa-heartbeat"></p>CPR</div>
+                                <div><p class="fa fa-shield"></p>National Criminal Check</div>
+                                <div><p class="fa fa-child"></p>Work with Children Check</div>
+                            </CertBlock>
                 </GeneralContent>
         </MainSection>
     </div>
-);
+    )
+};
 
 export default ResumePage;
