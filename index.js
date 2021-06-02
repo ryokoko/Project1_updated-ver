@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'; //创建第一个component，通过命名一个arrow function返回一个片段，再import到index文件中
+import "./main.css";
 
 
 

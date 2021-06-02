@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import MainSection from '../components/MainSection';
 import GeneralHeader from '../components/GeneralHeader';
 import { ContentTitle, GeneralContent } from '../components/ContentStyle';
-import Flex from '../../../Components/Flex';
+
 import FlexBlock from '../../../Components/FlexBlock';
 
 const Services = styled(FlexBlock)`
@@ -14,6 +14,7 @@ const Services = styled(FlexBlock)`
 
 const ServiceBlock = styled.div`
     padding: 2% 5%;
+    margin-bottom: 50px;
     background-color: rgba(245, 227, 63, 0.267);
     position: relative;
     text-align: center;
@@ -30,6 +31,7 @@ const ServiceBlock = styled.div`
 const Clients = styled(FlexBlock)`
     position: relative;
     justify-content: space-around;
+    padding: 5px 10px;
 `;
 
 const ClientBlock = styled.div`

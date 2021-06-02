@@ -71,7 +71,7 @@ const SocialIcons = styled.a`
 const HomeContent = styled(Flex)`
     font-size: 1.5rem;
     width: 100%;
-    padding: 20px 30px;
+    padding: 50px 30px;
     @media (max-width: 768px) {
         flex-direction: column;
     }
