@@ -9,15 +9,15 @@ class ImageCarousel extends React.Component {
       return (
           <Carousel>
               <div>
-                  <img src="../../../Images/serv1.jpg" />
+                  <img src="./Images/serv1.jpg" />
                   <p className="legend">Cath-lab X-ray machine</p>                  
               </div>
               <div>
-                  <img src="../../../Images/serv2.jpg" />
+                  <img src="./Images/serv2.jpg" />
                   <p className="legend">OPG machine</p>
               </div>
               <div>
-                  <img src="../../../Images/serv3.jpg" />
+                  <img src="./Images/serv3.jpg" />
                   <p className="legend">Fully automatic X-ray machine</p>
               </div>
           </Carousel>

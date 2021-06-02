@@ -76,19 +76,19 @@ const ServicesPage = () => {
     const clientItems = [
         {
             quote: 'Rebecca is really into radiography and always has passion to learn something new during her placement.',
-            avatar: "./images/clients/raju.jpg",
+            avatar: "./Images/clients/raju.jpg",
             alt: "Suresh Raju",
             name: 'Suresh Raju, Chief Radiographer of Fairfield Hospital',
         },
         {
             quote: 'During her last placement at St. George, she had developed an in-depth knowledge in the field, and had improved a lot in various professional skills since she came here.',
-            avatar: "./images/clients/katsaros.jpg",
+            avatar: "./Images/clients/katsaros.jpg",
             alt: "George Katsaros",
             name: 'George Katsaros, Chief Radiographer of St. George Hospital',
         },
         {
             quote: 'She is a fast-learner, a warm associate at the clinic. Never felt shy to ask seniors about problems. A good team player.',
-            avatar: "./images/clients/stotch.jpg",
+            avatar: "./Images/clients/stotch.jpg",
             alt: "Butters Stotch",
             name: 'Butters Stotch, Chief Radiographer of HIS Mt Druitt',
         },
